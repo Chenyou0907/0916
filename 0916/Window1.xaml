@@ -1,0 +1,22 @@
+﻿<Window x:Class="_0916.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_0916"
+        mc:Ignorable="d"
+        Title="Window1" Height="324" Width="462">
+    <Grid>
+        <TextBox x:Name="txtName" HorizontalAlignment="Left" Margin="153,126,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="230" TextChanged="TextBox_TextChanged" Height="34"/>
+        <TextBox x:Name="txtPhone" HorizontalAlignment="Left" Margin="153,176,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="230" TextChanged="TextBox_TextChanged" Height="34"/>
+
+        <Label Content="登入成功" HorizontalAlignment="Left" Margin="169,53,0,0" VerticalAlignment="Top" Height="35" Width="112" FontSize="24"/>
+
+        <Label Content="姓名" HorizontalAlignment="Left" Margin="84,127,0,0" VerticalAlignment="Top" Height="34" Width="45" FontSize="16"/>
+        <Label Content="電話" HorizontalAlignment="Left" Margin="84,169,0,0" VerticalAlignment="Top" Height="34" Width="45" FontSize="16"/>
+
+        <!-- 送出 -->
+        <Button Content="送出" HorizontalAlignment="Left" Margin="174,227,0,0" VerticalAlignment="Top" Height="37" Width="77" FontSize="24" Click="SubmitButton_Click"/>
+
+    </Grid>
+</Window>
