@@ -7,8 +7,8 @@
         mc:Ignorable="d"
         Title="Window1" Height="324" Width="462">
     <Grid>
-        <TextBox x:Name="txtName" HorizontalAlignment="Left" Margin="153,126,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="230" TextChanged="TextBox_TextChanged" Height="34"/>
-        <TextBox x:Name="txtPhone" HorizontalAlignment="Left" Margin="153,176,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="230" TextChanged="TextBox_TextChanged" Height="34"/>
+        <TextBox x:Name="txtName" HorizontalAlignment="Left" Margin="153,126,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="230" TextChanged="TextBox_TextChanged" Height="34" FontSize="18"/>
+        <TextBox x:Name="txtPhone" HorizontalAlignment="Left" Margin="153,176,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="230" TextChanged="TextBox_TextChanged" Height="34" FontSize="18"/>
 
         <Label Content="登入成功" HorizontalAlignment="Left" Margin="169,53,0,0" VerticalAlignment="Top" Height="35" Width="112" FontSize="24"/>
 
