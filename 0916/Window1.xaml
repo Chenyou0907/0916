@@ -5,18 +5,46 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_0916"
         mc:Ignorable="d"
-        Title="Window1" Height="324" Width="462">
-    <Grid>
-        <TextBox x:Name="txtName" HorizontalAlignment="Left" Margin="153,126,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="230" TextChanged="TextBox_TextChanged" Height="34" FontSize="18"/>
-        <TextBox x:Name="txtPhone" HorizontalAlignment="Left" Margin="153,176,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="230" TextChanged="TextBox_TextChanged" Height="34" FontSize="18"/>
+        Title="Window1" Height="440" Width="930"
+        WindowStartupLocation="CenterScreen">
 
-        <Label Content="登入成功" HorizontalAlignment="Left" Margin="169,53,0,0" VerticalAlignment="Top" Height="35" Width="112" FontSize="24"/>
+    <Grid Background="#2B2D42">
+        <!-- 標題 -->
+        <Label Content="登入成功" HorizontalAlignment="Left" Margin="113,40,0,0" VerticalAlignment="Top" 
+               Height="45" Width="140" FontSize="26" FontWeight="Bold" Foreground="White"/>
 
-        <Label Content="姓名" HorizontalAlignment="Left" Margin="84,127,0,0" VerticalAlignment="Top" Height="34" Width="45" FontSize="16"/>
-        <Label Content="電話" HorizontalAlignment="Left" Margin="84,169,0,0" VerticalAlignment="Top" Height="34" Width="45" FontSize="16"/>
+        <!-- 姓名輸入 -->
+        <Label Content="姓名" HorizontalAlignment="Left" Margin="28,122,0,0" VerticalAlignment="Top" 
+               Height="34" Width="55" FontSize="18" Foreground="White"/>
+        <TextBox x:Name="txtName" HorizontalAlignment="Left" Margin="97,122,0,0" VerticalAlignment="Top" 
+                 Width="230" Height="34" FontSize="18"
+                 Background="#FFFFFF" BorderThickness="1" BorderBrush="#CCCCCC" VerticalContentAlignment="Center"/>
 
-        <!-- 送出 -->
-        <Button Content="送出" HorizontalAlignment="Left" Margin="174,227,0,0" VerticalAlignment="Top" Height="37" Width="77" FontSize="24" Click="SubmitButton_Click"/>
+        <!-- 電話輸入 -->
+        <Label Content="電話" HorizontalAlignment="Left" Margin="28,172,0,0" VerticalAlignment="Top" 
+               Height="34" Width="55" FontSize="18" Foreground="White"/>
+        <TextBox x:Name="txtPhone" HorizontalAlignment="Left" Margin="97,172,0,0" VerticalAlignment="Top" 
+                 Width="230" Height="34" FontSize="18"
+                 Background="#FFFFFF" BorderThickness="1" BorderBrush="#CCCCCC" VerticalContentAlignment="Center"/>
 
+        <!-- 送出按鈕 -->
+        <Button Content="送出" HorizontalAlignment="Left" Margin="118,225,0,0" VerticalAlignment="Top" 
+                Height="37" Width="100" FontSize="22" FontWeight="Bold" Background="#E0E0E0" 
+                Cursor="Hand" Click="SubmitButton_Click"/>
+
+        <!-- 九九乘法表輸入 -->
+        <Label Content="輸入數字" HorizontalAlignment="Left" Margin="10,295,0,0" VerticalAlignment="Top" 
+               FontSize="20" FontWeight="Bold" Foreground="White"/>
+        <TextBox x:Name="txtNumber" HorizontalAlignment="Left" Margin="115,298,0,0" VerticalAlignment="Top" 
+                 Width="140" Height="30" FontSize="18" TextChanged="TextBox_TextChanged_1"
+                 Background="#FFFFFF" BorderThickness="1" BorderBrush="#CCCCCC" VerticalContentAlignment="Center"/>
+
+        <!-- 結果顯示區 -->
+        <Border Margin="353,20,20,20" Background="#1E1E24" CornerRadius="8" Padding="10">
+            <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+                <TextBlock x:Name="txtResult" TextWrapping="NoWrap" FontFamily="Consolas" 
+                           FontSize="15" Foreground="#00FFCC" Text="請輸入數字產生乘法表..."/>
+            </ScrollViewer>
+        </Border>
     </Grid>
 </Window>
