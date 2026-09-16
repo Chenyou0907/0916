@@ -5,18 +5,75 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_0916"
         mc:Ignorable="d"
-        Title="Window1" Height="324" Width="462">
+        Title="Window1" Height="440" Width="930"
+        WindowStartupLocation="CenterScreen">
+
     <Grid>
-        <TextBox x:Name="txtName" HorizontalAlignment="Left" Margin="153,126,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="230" TextChanged="TextBox_TextChanged" Height="34" FontSize="18"/>
-        <TextBox x:Name="txtPhone" HorizontalAlignment="Left" Margin="153,176,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="230" TextChanged="TextBox_TextChanged" Height="34" FontSize="18"/>
+        <!-- RGB 動態流動漸層背景 -->
+        <Grid.Background>
+            <LinearGradientBrush x:Name="RgbBrush" StartPoint="0,0" EndPoint="1,1">
+                <LinearGradientBrush.RelativeTransform>
+                    <RotateTransform x:Name="BrushRotate" Angle="0" CenterX="0.5" CenterY="0.5"/>
+                </LinearGradientBrush.RelativeTransform>
+                <GradientStop Color="#FF007F" Offset="0.0"/>
+                <GradientStop Color="#7928CA" Offset="0.33"/>
+                <GradientStop Color="#0070F3" Offset="0.66"/>
+                <GradientStop Color="#00DFD8" Offset="1.0"/>
+            </LinearGradientBrush>
+        </Grid.Background>
 
-        <Label Content="登入成功" HorizontalAlignment="Left" Margin="169,53,0,0" VerticalAlignment="Top" Height="35" Width="112" FontSize="24"/>
+        <!-- RGB 旋轉動畫 -->
+        <Grid.Triggers>
+            <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+                <BeginStoryboard>
+                    <Storyboard RepeatBehavior="Forever">
+                        <DoubleAnimation Storyboard.TargetName="BrushRotate"
+                                         Storyboard.TargetProperty="Angle"
+                                         From="0" To="360" Duration="0:0:10"/>
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+        </Grid.Triggers>
 
-        <Label Content="姓名" HorizontalAlignment="Left" Margin="84,127,0,0" VerticalAlignment="Top" Height="34" Width="45" FontSize="16"/>
-        <Label Content="電話" HorizontalAlignment="Left" Margin="84,169,0,0" VerticalAlignment="Top" Height="34" Width="45" FontSize="16"/>
+        <!-- 粒子畫布 -->
+        <Canvas x:Name="ParticleCanvas" IsHitTestVisible="False"/>
 
-        <!-- 送出 -->
-        <Button Content="送出" HorizontalAlignment="Left" Margin="174,227,0,0" VerticalAlignment="Top" Height="37" Width="77" FontSize="24" Click="SubmitButton_Click"/>
+        <!-- 介面元素 -->
+        <Label Content="登入成功" HorizontalAlignment="Left" Margin="113,40,0,0" VerticalAlignment="Top" 
+               Height="45" Width="140" FontSize="26" FontWeight="Bold" Foreground="White"/>
 
+        <!-- 姓名輸入 -->
+        <Label Content="姓名" HorizontalAlignment="Left" Margin="28,122,0,0" VerticalAlignment="Top" 
+               Height="34" Width="55" FontSize="18" Foreground="White"/>
+        <TextBox x:Name="txtName" HorizontalAlignment="Left" Margin="97,122,0,0" VerticalAlignment="Top" 
+                 Width="230" Height="34" FontSize="18" TextChanged="TextBox_TextChanged"
+                 Background="#B3FFFFFF" BorderThickness="0" VerticalContentAlignment="Center"/>
+
+        <!-- 電話輸入 -->
+        <Label Content="電話" HorizontalAlignment="Left" Margin="28,172,0,0" VerticalAlignment="Top" 
+               Height="34" Width="55" FontSize="18" Foreground="White"/>
+        <TextBox x:Name="txtPhone" HorizontalAlignment="Left" Margin="97,172,0,0" VerticalAlignment="Top" 
+                 Width="230" Height="34" FontSize="18" TextChanged="TextBox_TextChanged"
+                 Background="#B3FFFFFF" BorderThickness="0" VerticalContentAlignment="Center"/>
+
+        <!-- 送出按鈕 -->
+        <Button Content="送出" HorizontalAlignment="Left" Margin="118,225,0,0" VerticalAlignment="Top" 
+                Height="37" Width="100" FontSize="22" FontWeight="Bold" Background="#D9FFFFFF" 
+                Cursor="Hand" Click="SubmitButton_Click"/>
+
+        <!-- 九九乘法表輸入 -->
+        <Label Content="輸入數字" HorizontalAlignment="Left" Margin="10,295,0,0" VerticalAlignment="Top" 
+               FontSize="20" FontWeight="Bold" Foreground="White"/>
+        <TextBox x:Name="txtNumber" HorizontalAlignment="Left" Margin="115,298,0,0" VerticalAlignment="Top" 
+                 Width="140" Height="30" FontSize="18" TextChanged="TextBox_TextChanged_1"
+                 Background="#B3FFFFFF" BorderThickness="0" VerticalContentAlignment="Center"/>
+
+        <!-- 結果顯示區 (半透明毛玻璃底板 + 等寬字型) -->
+        <Border Margin="353,20,20,20" Background="#99000000" CornerRadius="8" Padding="10">
+            <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+                <TextBlock x:Name="txtResult" TextWrapping="NoWrap" FontFamily="Consolas" 
+                           FontSize="15" Foreground="#00FFCC" Text="請輸入數字產生乘法表..."/>
+            </ScrollViewer>
+        </Border>
     </Grid>
 </Window>
